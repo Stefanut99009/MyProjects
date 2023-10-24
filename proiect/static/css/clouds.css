@@ -1,0 +1,119 @@
+/*nor1 */
+    
+   
+
+.imgslide {
+    position: fixed;
+    left: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    animation: slideshow 15s linear infinite;
+}
+.imgslide2 {
+    position: fixed;
+    left: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    animation: slideshow2 10s linear infinite;
+}
+.imgslide3 {
+    position: fixed;
+    left: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    animation: slideshow3 9s linear infinite;
+}
+.imgslide5 {
+    position: fixed;
+    left: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    animation: slideshow5 7s linear infinite;
+}
+/*nor 2*/
+.imgslide4 {
+    position: fixed;
+    left: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    animation: slideshow4 9s linear infinite;
+}
+.imgslide6 {
+    position: fixed;
+    left: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    animation: slideshow6 8s linear infinite;
+}
+@keyframes slideshow {
+    0% {
+        left: 100%; /* slide in from right */
+    }
+
+    100% {
+        
+        left: -30%; /* slide out to left */
+        
+        }
+}
+@keyframes slideshow2 {
+    0% {
+        left: 100%; /* slide in from right */
+        top:  50%;
+    }
+
+    100% {
+        left: -30%; /* slide out to left */
+        top: 50%;
+    }
+}
+@keyframes slideshow3 {
+    0% {
+        left: 100%; /* slide in from right */
+        top: 60%;
+    }
+
+    100% {
+        left: -30%; /* slide out to left */
+        top: 60%;
+    }
+}
+@keyframes slideshow4 {
+    0% {
+        left: 100%; /* slide in from right */
+        top: 13%;
+    }
+
+    100% {
+        left: -30%; /* slide out to left */
+        top: 13%;
+    }
+}
+@keyframes slideshow5 {
+    0% {
+        left: 100%; /* slide in from right */
+        top: 26%;
+    }
+
+    100% {
+        left: -30%; /* slide out to left */
+        top: 26%;
+    }
+}
+@keyframes slideshow6 {
+    0% {
+        left: 100%; /* slide in from right */
+        top: 80%;
+    }
+
+    100% {
+        left: -30%; /* slide out to left */
+        top: 80%;
+    }
+}

@@ -1,0 +1,2176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <!--
+    
+    Aici este inceputul conversatiei
+    
+    -->
+    
+    <category>
+        <pattern>^ Buna ^</pattern>
+        <template> Salut. Numele meu este <bot name="name" />.Dupa nume cred ca ti-ai dat seama deja ca te pot ajuta sa inveti mai usor structuri de date in python.  Tu cum te numesti? 
+        </template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <template>
+            Nu inteleg ceea ce vrei sa-mi spui!
+        </template>
+    </category>
+    <category>
+        <pattern>^ Salut ^</pattern>
+        <template>
+            <srai>^ Buna ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>^ Salutare ^</pattern>
+        <template>
+            <srai>^ Buna ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>^ Hello ^</pattern>
+        <template>
+            <srai>^ Buna ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>^ Hei ^</pattern>
+        <template>
+            <srai>^ Buna ^</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>^ Hi ^</pattern>
+        <template>
+            <srai>^ Buna ^</srai>
+        </template>
+    </category>
+    <!--
+
+    Setarea numelui
+
+    -->
+    <category>
+        <pattern>Ma numesc * *</pattern>
+        <template>
+            Imi pare bine sa te cunosc, <set name="numeleuserului">
+                <star />
+            </set>.Cu ce te pot ajuta?
+        </template>
+    </category>
+    <category>
+        <pattern>Numele meu este * *</pattern>
+        <template>
+            Imi pare bine sa te cunosc, <set name="numeleuserului">
+                <star index="1"></star>
+            </set><set lastname="prenumeleuserului"><star index="2"></star></set>.Cu ce te pot ajuta?
+        </template>
+    </category>
+    <category>
+        <pattern>Sunt * *</pattern>
+        <template>
+            Imi pare bine sa te cunosc, <set name="numeleuserului">
+                <star index="1"></star>
+            </set><set lastname="prenumeleuserului"><star index="2"></star></set>.Cu ce te pot ajuta?
+        </template>
+    </category>
+    <!--
+    
+    Intrarea in intrebari
+    
+    -->
+    <category>
+        <pattern>As dori * despre structuri de date *</pattern>
+        <template>Sunt “containere” care organizeaza si grupeaza date in functie de tip.Ele difera de la una la alta,ele putand fi mutabile sau ordonate.Doresti sa stii despre tipurile de structuri de date</template>
+    </category>
+    <category>
+        <pattern>Ce sunt structurile de date in python</pattern>
+        <template>
+            <srai>As dori * despre structuri de date *</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>Tipuri de structuri de date *</pattern>
+        <template>
+            <srai>As dori * despre structuri de date *</srai>
+        </template>
+    </category>
+    <!--
+    
+    Intrare in topic
+    
+    -->
+    <category>
+        <pattern>Tupluri</pattern>
+        <template>Ai dori sa continui definitia,cum sunt definite,metode sau operatii cu <set name="topic">Tupluri</set></template>
+    </category>
+    <category>
+        <pattern>Seturi</pattern>
+        <template>Ai dori sa continui definitia,cum sunt definite,metode sau operatii cu <set name="topic">Seturi</set></template>
+    </category>
+    <category>
+        <pattern>Dictionare</pattern>
+        <template>Ai dori sa continui definitia,cum sunt definite,metode sau operatii cu <set name="topic">Dictionare</set></template>
+    </category>
+    <category>
+        <pattern>Liste</pattern>
+        <template>Ai dori sa continui definitia,cum sunt definite,metode,cum pot fi sau operatii cu <set name="topic">Liste</set></template>
+    </category>
+    
+    <!--
+    
+    Pregatirea de intrare in topic
+    
+    -->
+    <category>
+        <pattern>Care * structuri de date in python</pattern>
+        <template>
+            <button>
+                <text>Tupluri</text>
+                <postback>Tupluri</postback>
+            </button>
+            <button>
+                <text>Seturi</text>
+                <postback>Seturi</postback>
+            </button>
+            <button>
+                <text>Liste</text>
+                <postback>Liste</postback>
+            </button>
+            <button>
+                <text>Dictionare</text>
+                <postback>Dictionare</postback>
+            </button>
+        </template>
+    </category>    
+    <category>
+        <pattern>As dori *</pattern>
+        <template>
+            <set var="ceva"><star/></set>
+            <condition var="ceva">
+                <li value="sa stiu despre structurile de date in python">
+                <button>
+                <text>Tupluri</text>
+                <postback>Tupluri</postback>
+            </button>
+            <button>
+                <text>Seturi</text>
+                <postback>Seturi</postback>
+            </button>
+            <button>
+                <text>Liste</text>
+                <postback>Liste</postback>
+            </button>
+            <button>
+                <text>Dictionare</text>
+                <postback>Dictionare</postback>
+            </button>    
+                </li>
+                <li value="sa stiu despre alt topic">Te rog sa selectezi un topic
+            <button>
+                <text>Tupluri</text>
+                <postback>Tupluri</postback>
+            </button>
+            <button>
+                <text>Seturi</text>
+                <postback>Seturi</postback>
+            </button>
+            <button>
+                <text>Liste</text>
+                <postback>Liste</postback>
+            </button>
+            <button>
+                <text>Dictionare</text>
+                <postback>Dictionare</postback>
+            </button></li>
+            <li value="sa stiu despre Tupluri">
+                <srai>Tupluri</srai>
+                </li>
+            <li value="sa stiu despre Dictionare">
+                <srai>Dictionare</srai>
+                </li>
+            <li value="sa stiu despre Seturi">
+                <srai>Seturi</srai>
+                </li>
+            <li value="sa stiu despre Liste">
+                <srai>Liste</srai>
+                </li>
+            </condition>
+        </template>
+    </category>
+    <category>
+        <pattern>Stiu *</pattern>
+        <template>
+            <set var="ceva"><star/></set>
+            <condition var ="ceva">
+                <li value="anumite detalii despre structuri de date si algoritmi">Te rog sa selectezi un topic
+            <button>
+                <text>Tupluri</text>
+                <postback>Tupluri</postback>
+            </button>
+            <button>
+                <text>Seturi</text>
+                <postback>Seturi</postback>
+            </button>
+            <button>
+                <text>Liste</text>
+                <postback>Liste</postback>
+            </button>
+            <button>
+                <text>Dictionare</text>
+                <postback>Dictionare</postback>
+            </button></li>
+            <li value="anumite detalii despre Tupluri">
+                <srai>Tupluri</srai>
+                </li>
+            <li value="anumite detalii despre Dictionare">
+                <srai>Dictionare</srai>
+                </li>
+            <li value="anumite detalii despre Seturi">
+                <srai>Seturi</srai>
+                </li>
+            <li value="anumite detalii despre Liste">
+                <srai>Liste</srai>
+                </li>
+                </condition>
+        </template>
+    </category>
+    <category>
+        <pattern>Vreau *</pattern>
+        <template>
+            <set var="ceva"><star/></set>
+            <condition var ="ceva">
+                <li value="sa stiu despre structurile de date in python">
+                <button>
+                <text>Tupluri</text>
+                <postback>Tupluri</postback>
+            </button>
+            <button>
+                <text>Seturi</text>
+                <postback>Seturi</postback>
+            </button>
+            <button>
+                <text>Liste</text>
+                <postback>Liste</postback>
+            </button>
+            <button>
+                <text>Dictionare</text>
+                <postback>Dictionare</postback>
+            </button>    
+                </li>
+                <li value="sa stiu despre alt topic">Te rog sa selectezi un topic
+            <button>
+                <text>Tupluri</text>
+                <postback>Tupluri</postback>
+            </button>
+            <button>
+                <text>Seturi</text>
+                <postback>Seturi</postback>
+            </button>
+            <button>
+                <text>Liste</text>
+                <postback>Liste</postback>
+            </button>
+            <button>
+                <text>Dictionare</text>
+                <postback>Dictionare</postback>
+            </button></li>
+            <li value="sa stiu despre Tupluri">
+                <srai>Tupluri</srai>
+                </li>
+            <li value="sa stiu despre Dictionare">
+                <srai>Dictionare</srai>
+                </li>
+            <li value="sa stiu despre Seturi">
+                <srai>Seturi</srai>
+                </li>
+            <li value="sa stiu despre Liste">
+                <srai>Liste</srai>
+                </li>
+                </condition>
+        </template>
+    </category>
+    <!--
+    
+    Intrarea in topic
+    
+    -->
+    
+    <!--
+    
+    Topicul
+    
+    -->
+    <topic name="Tupluri">
+        <!--
+            Primele intrebari
+        -->
+        <category>
+            <pattern>Cum * definite Tuplurile</pattern>
+            <template>Tuplurile sunt definite cu ()</template>
+        </category>
+        <category>
+            <pattern>As dori * definesc Tuplurile</pattern>
+            <template>
+                <srai>Cum * definite Tuplurile</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definite Tuplurile</pattern>
+            <template>
+                <srai>Cum * definite Tuplurile</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * definitia Tuplurilor</pattern>
+            <template>Tuplurile sunt folosite ca sa stocheze multiple iteme intr-o singura variabila.Tulplurile permit duplicari </template>
+        </category>
+        <category>
+            <pattern>As dori * definitia Tuplurilor</pattern>
+            <template>
+                <srai>Care * definitia Tuplurilor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * definitia * Tupluri</pattern>
+            <template>
+                 <srai>Care * definitia Tuplurilor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definitia * Tupluri</pattern>
+            <template>
+                <srai>Care * definitia Tuplurilor</srai>
+            </template>
+        </category>
+        <!--
+        
+        metodele Tuplurilor butoane
+        
+        -->
+        <category>
+            <pattern>Care * metodele * Tupluri</pattern>
+            <template>
+            <button>
+                <text>Despre count</text>
+                <postback>Despre count</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza count</text>
+                <postback>Cum functioneaza count</postback>
+            </button>
+            
+            <button>
+                <text>Despre index</text>
+                <postback>Despre index</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza index</text>
+                <postback>Cum functioneaza index</postback>
+            </button>
+            <button>
+                <text>Metoda speciala min</text>
+                <postback>Metoda speciala min</postback>
+            </button>
+            <button>
+                <text>Metoda speciala max</text>
+                <postback>Metoda speciala max</postback>
+            </button>
+             </template>
+        </category>
+        <category>
+            <pattern>Care * metodele Tuplurilor</pattern>
+            <template>
+                <srai>Care * metodele * Tupluri</srai>
+            </template>
+        </category>
+        <pattern>
+            <pattern>As dori * metodele Tuplurilor</pattern>
+            <template>
+                <srai>Care * metodele * Tupluri</srai>
+            </template>
+        </pattern>
+        <category>
+            <pattern>As dori * metodele * Tupluri</pattern>
+            <template>
+                <srai>Care * metodele * Tupluri</srai>
+            </template>
+        </category>
+        <!--
+        
+        Metodele Tuplurilor
+        
+        -->
+        <category>
+            <pattern>Despre count</pattern>
+            <template>Metoda count returneaza numarul de cate ori o valoare specifica este in Tuplu</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza count</pattern>
+            <template>tuplu1.count("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_tuple_count.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre index</pattern>
+            <template>Metoda index returneaza prima  pozitie la care se regaseste o valoare intr-un tuplu</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza index</pattern>
+            <template>tuplu1.index("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_tuple_index.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Metoda speciala min</pattern>
+            <template>Cu metoda min putem afla minumul dintr-un tuplu<br/>
+                      tuplu1=(12,13,14,15)<br/>
+                      print(min(tuplu1))
+                      <link>
+                          <text>Pentru testare se vor lua ultimele doua randuri</text>
+                          <url>https://colab.research.google.com/notebooks/basic_features_overview.ipynb#scrollTo=mAo_TQTQtl-j</url>
+                      </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Metoda speciala max</pattern>
+            <template>Cu metoda max putem afla maximul dintr-un tuplu<br/>
+                      tuplu1=(12,13,14,15)<br/>
+                      print(max(tuplu1))
+                      <link>
+                          <text>Pentru testare se vor lua ultimele doua randuri</text>
+                          <url>https://colab.research.google.com/notebooks/basic_features_overview.ipynb#scrollTo=mAo_TQTQtl-j</url>
+                      </link>
+            </template>
+        </category>
+        <!--
+        
+        Operatii Tupluri butoane
+        
+        -->
+        <category>
+            <pattern>Care * operatiile * Tupluri</pattern>
+            <template>
+                <button>
+                <text>Accesarea Tuplurilor</text>
+                <postback>Accesarea Tuplurilor</postback>
+            </button>
+    
+            <button>
+                <text>Actualizarea Tupluri</text>
+                <postback>Actualizarea Tupluri</postback>
+            </button>
+            
+            <button>
+                <text>Dezpachetare Tupluri</text>
+                <postback>Dezpachetare Tupluri</postback>
+            </button>
+            
+            <button>
+                <text>Parcurgere Tupluri</text>
+                <postback>Parcurgere Tupluri</postback>
+            </button>
+            <button>
+                <text>Unire tupluri</text>
+                <postback>Unire Tupluri</postback>
+            </button>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * operatii * Tupluri</pattern>
+            <template>
+                <srai>Care * operatiile * Tupluri</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * operatiile Tuplurilor</pattern>
+            <template>
+                <srai>Care * operatiile * Tupluri</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * operatiile Tuplurilor</pattern>
+            <template>
+                <srai>Care * operatiile * Tupluri</srai>
+            </template>
+        </category>
+        <!--
+        
+        Tupluri operatii
+        
+        -->
+        <category>
+            <pattern>Accesarea Tuplurilor</pattern>
+            <template>Poti accesa itemele din tupluri print-un index de tip numar in interiorul la niste paranteze patrate in urmatorul fel print(tuple1[1])
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/python_tuples_access.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Actualizare Tupluri</pattern>
+            <template>Operatia update se poate folosi, in urmatorii pasi crearea tuplului y,facerea unei noi variabile x care va fi egala cu tuplul ,dar facut lista(x=list(y)) x[2]="ceva" apoi facerea listei inapoi in tuplu y=tuple(x)
+                <link>
+                    <text>Mai multe detalii</text>
+                    <url>https://www.w3schools.com/python/python_tuples_update.asp</url>
+                </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Dezpachetare Tupluri</pattern>
+            <template>Operatia unpack se creaza tuplul dupa se scrie in urmatorul fel (x,y,z)=tuplu1 dupa se poate afisa fiecare in parte(print(x),print(y),print(z)) sau (x,y,*z) si z ia pana la ultima valoare daca este (x,y,*z,t) atunci z ia de la a3a valoare pana la penultima
+                <link>
+                    <text>Mai multe detalii</text>
+                    <url>https://www.w3schools.com/python/python_tuples_unpack.asp</url>
+                </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Parcurgere Tupluri</pattern>
+            <template>Operatia de parcurgere se face un for dupa ce sa creat tuplul <br/> 
+            for i in range(len(tuplu1)):<br/>
+            ---print(tuplu1[i])(liniute in loc de space)
+                <link>
+                    <text>Mai multe detalii</text>
+                    <url>https://www.w3schools.com/python/python_tuples_loop.asp</url>
+                </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Unire Tupluri</pattern>
+            <template>La tupluri unirea se face prin + intre doua tupluri(tuplu3=tupluu1+tuplu2) sau prin inmultirea prin numere intregi *2(unde se dubleaza tot continutul tuplului) *3(unde se tripleaza tot continutul tuplului)
+                <link>
+                    <text>Mai multe detalii</text>
+                    <url>https://www.w3schools.com/python/python_tuples_join.asp</url>
+                </link>
+            </template>
+        </category>
+        <!--
+        
+        Tupluri iteme butoane
+        
+        -->
+        <category>
+            <pattern>Cum sunt itemele * Tupluri</pattern>
+            <template>
+                <button>
+                    <text>De tip int</text>
+                    <postback>De tip int</postback>
+                </button>
+                <button>
+                    <text>De tip String</text>
+                    <postback>De tip String</postback>
+                </button>
+                <button>
+                    <text>De tip float</text>
+                    <postback>De tip float</postback>
+                </button>
+                <button>
+                    <text>De tip boolean</text>
+                    <postback>De tip boolean</postback>
+                </button>
+                <button>
+                    <text>Obs</text>
+                    <postback>Obs</postback>
+                </button>
+            </template>
+        </category>
+        <!--
+        
+        Tupluri butoane
+        
+        -->
+        <category>
+            <pattern>De tip int</pattern>
+            <template>tuplu1=(1,2,3,4)</template>
+        </category>
+        <category>
+            <pattern>De tip String</pattern>
+            <template>tuplu1=("ceva1","ceva2","ceva3")</template>
+        </category>
+        <category>
+            <pattern>De tip float</pattern>
+            <template>tuplu1=(3.14,3.113,3.12)</template>
+        </category>
+        <category>
+            <pattern>De tip boolean</pattern>
+            <template>tuplur1=(True,False)</template>
+        </category>
+        <category>
+            <pattern>Obs</pattern>
+            <template>tuplu1=(1,"1",1.1,True)</template>
+        </category>
+        <!--
+        
+        In caz ca se blocheaza utilizatorul
+        
+        -->
+        <category>
+            <pattern>Am uitat ce contineau tuplurile</pattern>
+            <template>Ai dori sa continui cu definitia,cum sunt definite,metode sau operatii cu Tupluri</template>
+        </category>
+        <!--
+        
+        Sfarsitul topicului
+        
+        -->
+    </topic>
+    <!--
+    
+    Topicul
+    
+    -->
+    <topic name="Seturi">
+        <!--
+        
+            Primele intrebari
+        
+        -->
+        <category>
+            <pattern>Cum * definite Seturile</pattern>
+            <template>Seturile sunt definite cu {}</template>
+        </category>
+        <category>
+            <pattern>As dori * definesc Seturile</pattern>
+            <template>
+                <srai>Cum * definite Seturile</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definite Seturile</pattern>
+            <template>
+                <srai>Cum * definite Seturile</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * definesc Seturile</pattern>
+            <template>Seturile sunt definite cu {}</template>
+        </category>
+        <category>
+            <pattern>Care * definitia Seturilor</pattern>
+            <template>Sunt variabile care ajuta la stocarea mai multor tipuri de date, ele pot contine si tupluri deodata ,dar nu pot contine liste(exemplu cum pot avea tupluri:mySet = set((x,y) for x in range(1,51) for y in range(1,51))),ele nu se schimba,dar se pot adauga si sterge din ele</template>
+        </category>
+        <category>
+            <pattern>As dori * definitia Seturilor</pattern>
+            <template>
+                <srai>Care * definitia Seturilor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * definitia * Seturi</pattern>
+            <template>
+                 <srai>Care * definitia Seturilor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definitia * Seturi</pattern>
+            <template>
+                <srai>Care * definitia Seturilor</srai>
+            </template>
+        </category>
+        <!--
+        
+        metodele Seturilor butoane
+        
+        -->
+        <category>
+            <pattern>Care * metodele * Seturi</pattern>
+            <template>
+            <button>
+                <text>Despre add</text>
+                <postback>Despre add</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza add</text>
+                <postback>Cum functioneaza add</postback>
+            </button>
+            <button>
+                <text>Despre clear</text>
+                <postback>Despre clear</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza clear</text>
+                <postback>Cum functioneaza clear</postback>
+            </button>
+            <button>
+                <text>Despre copy</text>
+                <postback>Despre copy</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza copy</text>
+                <postback>Cum functioneaza copy</postback>
+            </button>
+            <button>
+                <text>Despre difference</text>
+                <postback>Despre difference</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza difference</text>
+                <postback>Cum functioneaza difference</postback>
+            </button>
+            <button>
+                <text>Despre difference_update</text>
+                <postback>Despre difference_update</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza difference_update</text>
+                <postback>Cum functioneaza difference_update</postback>
+            </button>
+            <button>
+                <text>Despre discard</text>
+                <postback>Despre discard</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza discard</text>
+                <postback>Cum functioneaza discard</postback>
+            </button>
+            <button>
+                <text>Despre intersection</text>
+                <postback>Despre intersection</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza intersection</text>
+                <postback>Cum functioneaza intersection</postback>
+            </button>
+            <button>
+                <text>Despre intersection_update</text>
+                <postback>Despre intersection_update</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza intersection_update</text>
+                <postback>Cum functioneaza intersection_update</postback>
+            </button>
+            <button>
+                <text>Despre isdisjoint</text>
+                <postback>Despre isdisjoint</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza isdisjoint</text>
+                <postback>Cum functioneaza isdisjoint</postback>
+            </button>
+            <button>
+                <text>Despre  issubset</text>
+                <postback>Despre  issubset</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza  issubset</text>
+                <postback>Cum functioneaza  issubset</postback>
+            </button>
+            <button>
+                <text>Despre issuperset</text>
+                <postback>Despre issuperset</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza issuperset</text>
+                <postback>Cum functioneaza issuperset</postback>
+            </button>
+            <button>
+                <text>Despre pop</text>
+                <postback>Despre pop</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza pop</text>
+                <postback>Cum functioneaza pop</postback>
+            </button>
+            <button>
+                <text>Despre remove</text>
+                <postback>Despre remove</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza remove</text>
+                <postback>Cum functioneaza remove</postback>
+            </button>
+            <button>
+                <text>Despre symmetric_difference</text>
+                <postback>Despre symmetric_difference</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza symmetric_difference</text>
+                <postback>Cum functioneaza symmetric_difference</postback>
+            </button>
+            <button>
+                <text>Despre symmetric_difference_update</text>
+                <postback>Despre symmetric_difference_update</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza symmetric_difference_update</text>
+                <postback>Cum functioneaza symmetric_difference_update</postback>
+            </button>
+             <button>
+                <text>Despre union</text>
+                <postback>Despre union</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza union</text>
+                <postback>Cum functioneaza union</postback>
+            </button>
+            <button>
+                <text>Despre update</text>
+                <postback>Despre update</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza update</text>
+                <postback>Cum functioneaza update</postback>
+            </button>
+             </template>
+        </category>
+        <category>
+            <pattern>Care * metodele Seturilor</pattern>
+            <template>
+                <srai>Care * metodele * Seturi</srai>
+            </template>
+        </category>
+        <pattern>
+            <pattern>As dori * metodele Seturilor</pattern>
+            <template>
+                <srai>Care * metodele * Tupluri</srai>
+            </template>
+        </pattern>
+        <category>
+            <pattern>As dori * metodele * Seturi</pattern>
+            <template>
+                <srai>Care * metodele * Seturi</srai>
+            </template>
+        </category>
+        <!--
+        
+        Metodele Seturilor
+        
+        -->
+        <category>
+            <pattern>Despre add</pattern>
+            <template>Metoda add adauga un element la set</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza add</pattern>
+            <template>set1.add("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_add.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre clear</pattern>
+            <template>Metoda clear scoate toate elementele din set</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza clear</pattern>
+            <template>set1.clear("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_clear.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre copy</pattern>
+            <template>Metoda copy returneaza o copie la un set</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza copy</pattern>
+            <template>set1.copy(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_copy.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre difference</pattern>
+            <template>Metoda difference returneaza diferenta dintre doua sau mai multe seturi</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza difference</pattern>
+            <template>set3=set1.difference(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_difference.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre difference_update</pattern>
+            <template>Metoda difference_update sterge elementele dintr-un set care sunt in celalalt set</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza difference_update</pattern>
+            <template>set3=set1.difference_update(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_difference_update.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre discard</pattern>
+            <template>Metoda discard sterge un item specific</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza discard</pattern>
+            <template>set1.discard("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_discard.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre intersection</pattern>
+            <template>Metoda intersection returneaza un set care este intersectat cu alte set-uri</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza intersection</pattern>
+            <template>set3=set1.intersection(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_intersection.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre intersection_update</pattern>
+            <template>Metoda intersection_update sterge elementele care nu sunt prezente in celelalte seturi</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza intersection_update</pattern>
+            <template>set3=set1.intersection_update(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_intersection_update.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre isdisjoint</pattern>
+            <template>Metoda isdisjoint returneaza true sau false in functie daca este o intersectie sau nu(daca este intersectie atunci returneaza True)</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza isdisjoint</pattern>
+            <template>set2=set1.isdisjoint(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_isdisjoint.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre issubset</pattern>
+            <template>Metoda issubset returneaza true sau false daca setul contine acest setul sau nu</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza issubset</pattern>
+            <template>set3=set1.issubset(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_issubset.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre issuperset</pattern>
+            <template>Metoda issuperset returneaza true sau false daca setul contine alt set sau nu</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza issuperset</pattern>
+            <template>set3=set1.issuperset(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_issuperset.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre pop</pattern>
+            <template>Metoda pop sterge un element dintr-un set</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza pop</pattern>
+            <template>et1.pop() sterge ultimul element (Obs nu merge sa pui ca la liste set1.pop(1) ca sa stearga elementul de pe indexul 2) 
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_pop.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre remove</pattern>
+            <template>Metoda remove sterge un element specific</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza remove</pattern>
+            <template>set1.remove("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_remove.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre symmetric_difference</pattern>
+            <template>Metoda symmetric_difference returneaza un set cu diferente simetrice</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza symmetric_difference</pattern>
+            <template>set3=set1.symmetric_difference(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_symmetric_difference.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre symmetric_difference_update</pattern>
+            <template>Metoda symmetric_difference_update insereaza diferentele pe care le are un set in celalalt</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza symmetric_difference_update</pattern>
+            <template>set3=set1.symmetric_difference_update(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_symmetric_difference_update.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre union</pattern>
+            <template>Metoda union returneaza unui set</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza union</pattern>
+            <template>set1.union(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_set_union.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre update</pattern>
+            <template>Metoda update actualizeaza un set cu uniunea dintre cele doua</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza update</pattern>
+            <template>set1.update(set2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/python_sets_methods.asp</url>
+            </link>
+            </template>
+        </category>
+        <!--
+        
+        Operatii seturi butoane
+        
+        -->
+        <category>
+            <pattern>Care * operatiile * Seturi</pattern>
+            <template>Majoritatea operatiilor cu seturi au cate o metoda</template>
+        </category>
+        <category>
+            <pattern>As dori * operatii * Seturi</pattern>
+            <template>
+                <srai>Care * operatiile * Seturi</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * operatiile Seturilor</pattern>
+            <template>
+                <srai>Care * operatiile * Seturi</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * operatiile Seturilor</pattern>
+            <template>
+                <srai>Care * operatiile * Seturi</srai>
+            </template>
+        </category>
+        <!--
+        
+        Seturi iteme butoane
+        
+        -->
+        <category>
+            <pattern>Cum sunt itemele * Seturi</pattern>
+            <template>
+                <button>
+                    <text>De tip int</text>
+                    <postback>De tip int</postback>
+                </button>
+                <button>
+                    <text>De tip String</text>
+                    <postback>De tip String</postback>
+                </button>
+                <button>
+                    <text>De tip float</text>
+                    <postback>De tip float</postback>
+                </button>
+                <button>
+                    <text>De tip boolean</text>
+                    <postback>De tip boolean</postback>
+                </button>
+                <button>
+                    <text>Obs</text>
+                    <postback>Obs</postback>
+                </button>
+            </template>
+        </category>
+         <category>
+            <pattern>Care sunt itemele * Seturi</pattern>
+            <template>
+                <srai>Cum sunt itemele * Seturi</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As * itemele * Seturi</pattern>
+            <template>
+                <srai>Cum sunt itemele * Seturi</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * itemele Seturilor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Seturi</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * itemele Seturilor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Seturi</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As * itemele Seturilor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Seturi</srai>
+            </template>
+        </category>
+        <!--
+        
+        Seturi iteme butoane
+        
+        -->
+        <category>
+            <pattern>De tip int</pattern>
+            <template>set1=(1,2,3,4)</template>
+        </category>
+        <category>
+            <pattern>De tip String</pattern>
+            <template>set1=("ceva1","ceva2","ceva3")</template>
+        </category>
+        <category>
+            <pattern>De tip float</pattern>
+            <template>set1=(3.14,3.113,3.12)</template>
+        </category>
+        <category>
+            <pattern>De tip boolean</pattern>
+            <template>set1=(True,False)</template>
+        </category>
+        <category>
+            <pattern>Obs</pattern>
+            <template>set1=(1,"1",1.1,True)</template>
+        </category>
+        <!--
+        
+        In caz ca se blocheaza utilizatorul
+        
+        -->
+        <category>
+            <pattern>Am uitat ce contineau Seturile</pattern>
+            <template>Ai dori sa continui cu definitia,cum sunt definite,pe ce se bazeaza,metode sau operatii cu Seturi</template>
+        </category>
+        <!--
+        
+        Sfarsitul topicului
+        
+        -->
+    </topic>
+    <!--
+    
+    
+    
+    
+    
+    Topicul
+    
+    
+    
+    
+    
+    -->
+    <topic name="Liste">
+        <!--
+        
+            Primele intrebari
+        
+        -->
+        <category>
+            <pattern>Cum * definite Listele</pattern>
+            <template>Listele sunt definite cu []</template>
+        </category>
+        <category>
+            <pattern>As dori * definesc Listele</pattern>
+            <template>
+                <srai>Cum * definite Listele</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definite Listele</pattern>
+            <template>
+                <srai>Cum * definite Listele</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * definesc Listele</pattern>
+            <template>Seturile sunt definite cu {}</template>
+        </category>
+        <category>
+            <pattern>Care * definitia Listelor</pattern>
+            <template>Listele sunt folosite ca sa inseram iteme multiple intr-o singura variabila</template>
+        </category>
+        <category>
+            <pattern>As dori * definitia Listelor</pattern>
+            <template>
+                <srai>Care * definitia Listelor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * definitia * Liste</pattern>
+            <template>
+                 <srai>Care * definitia Listelor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definitia * Liste</pattern>
+            <template>
+                <srai>Care * definitia Listelor</srai>
+            </template>
+        </category>
+        <!--
+        
+        metodele Listelor butoane
+        
+        -->
+        <category>
+            <pattern>Care * metodele * Liste</pattern>
+            <template>
+            <button>
+                <text>Despre append</text>
+                <postback>Despre append</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza append</text>
+                <postback>Cum functioneaza append</postback>
+            </button>
+            <button>
+                <text>Despre clear</text>
+                <postback>Despre clear</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza clear</text>
+                <postback>Cum functioneaza clear</postback>
+            </button>
+            <button>
+                <text>Despre copy</text>
+                <postback>Despre copy</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza copy</text>
+                <postback>Cum functioneaza copy</postback>
+            </button>
+            <button>
+                <text>Despre count</text>
+                <postback>Despre count</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza count</text>
+                <postback>Cum functioneaza count</postback>
+            </button>
+            <button>
+                <text>Despre extend</text>
+                <postback>Despre extend</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza extend</text>
+                <postback>Cum functioneaza extend</postback>
+            </button>
+            <button>
+                <text>Despre index</text>
+                <postback>Despre index</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza index</text>
+                <postback>Cum functioneaza index</postback>
+            </button>
+            <button>
+                <text>Despre insert</text>
+                <postback>Despre insert</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza insert</text>
+                <postback>Cum functioneaza insert</postback>
+            </button>
+            <button>
+                <text>Despre pop</text>
+                <postback>Despre pop</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza pop</text>
+                <postback>Cum functioneaza pop</postback>
+            </button>
+            <button>
+                <text>Despre remove</text>
+                <postback>Despre remove</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza remove</text>
+                <postback>Cum functioneaza remove</postback>
+            </button>
+            <button>
+                <text>Despre reverse</text>
+                <postback>Despre  reverse</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza reverse</text>
+                <postback>Cum functioneaza reverse</postback>
+            </button>
+            <button>
+                <text>Despre sort</text>
+                <postback>Despre sort</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza sort</text>
+                <postback>Cum functioneaza sort</postback>
+            </button>
+             </template>
+        </category>
+        <category>
+            <pattern>Care * metodele Listelor</pattern>
+            <template>
+                <srai>Care * metodele * Seturi</srai>
+            </template>
+        </category>
+        <pattern>
+            <pattern>As dori * metodele Listelor</pattern>
+            <template>
+                <srai>Care * metodele * Tupluri</srai>
+            </template>
+        </pattern>
+        <category>
+            <pattern>As dori * metodele * Liste</pattern>
+            <template>
+                <srai>Care * metodele * Liste</srai>
+            </template>
+        </category>
+        <!--
+        
+        Metodele Listelor
+        
+        -->
+        <category>
+            <pattern>Despre append</pattern>
+            <template>Metoda append adauga un element la sfarsitul listei</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza append</pattern>
+            <template>lista1.append("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_append.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre clear</pattern>
+            <template>Metoda clear scoate toate elementele din lista</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza clear</pattern>
+            <template>list1.clear("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_clear.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre copy</pattern>
+            <template>Metoda copy returneaza o copie la o lista</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza copy</pattern>
+            <template>list1.copy(list2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_copy.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre count</pattern>
+            <template>Metoda count returneaza numarul de elemente cu o valoare specifica</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza count</pattern>
+            <template>list1.count(3)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_count.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre extend</pattern>
+            <template>Metoda extend adauga elementele dintr-o lista (ori iterabile list,set,tuple,etc.),la finalul listei curente </template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza extend</pattern>
+            <template>list1.extend(t2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_extend.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre index</pattern>
+            <template>Metoda index returneaza prima pozitie primului la o valoare specifica</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza index</pattern>
+            <template>list1.index("ceva")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_index.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre insert</pattern>
+            <template>Metoda insert adauga elemente la pozitie specifica</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza insert</pattern>
+            <template>list1.insert(3,4) insereaza pe pozitia 4 elementul 4,daca nu exista pozitia adauga la ultimul element
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_insert.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre pop</pattern>
+            <template>Metoda pop sterge un element la o pozitie specifica</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza pop</pattern>
+            <template>slist1.pop(1) sterge elementul de pe pozitia 2 sau list1.pop() sterge elementul de pe ultima pozitie
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_pop.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre remove</pattern>
+            <template>Metoda remove sterge itemul cu o valoare specifica</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza remove</pattern>
+            <template>list1.remove(1) daca list1=[1,1,1,1,4,3] sterge doar un 1 de pe pozitia 0
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_remove.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre reverse</pattern>
+            <template>Metoda reverse inverseaza ordinea listei</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza reverse</pattern>
+            <template>list1.reverse()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_reverse.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre sort</pattern>
+            <template>Metoda sort sorteaza lista</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza sort</pattern>
+            <template>list1.sort()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_list_sort.asp</url>
+            </link>
+            </template>
+        </category>
+        <!--
+        
+        Liste iteme butoane
+        
+        -->
+        <category>
+            <pattern>Cum sunt itemele * Liste</pattern>
+            <template>
+                <button>
+                    <text>De tip int</text>
+                    <postback>De tip int</postback>
+                </button>
+                <button>
+                    <text>De tip String</text>
+                    <postback>De tip String</postback>
+                </button>
+                <button>
+                    <text>De tip float</text>
+                    <postback>De tip float</postback>
+                </button>
+                <button>
+                    <text>De tip boolean</text>
+                    <postback>De tip boolean</postback>
+                </button>
+                <button>
+                    <text>Obs</text>
+                    <postback>Obs</postback>
+                </button>
+            </template>
+        </category>
+        <category>
+            <pattern>Care sunt itemele * Liste</pattern>
+            <template>
+                <srai>Cum sunt itemele * Liste</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As * itemele * Liste</pattern>
+            <template>
+                <srai>Cum sunt itemele * Liste</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * itemele Listelor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Liste</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * itemele Listelor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Liste</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As * itemele Listelor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Liste</srai>
+            </template>
+        </category>
+        <!--
+        
+        Seturi iteme butoane
+        
+        -->
+        <category>
+            <pattern>De tip int</pattern>
+            <template>list1=(1,2,3,4)</template>
+        </category>
+        <category>
+            <pattern>De tip String</pattern>
+            <template>list1=("ceva1","ceva2","ceva3")</template>
+        </category>
+        <category>
+            <pattern>De tip float</pattern>
+            <template>list1=(3.14,3.113,3.12)</template>
+        </category>
+        <category>
+            <pattern>De tip boolean</pattern>
+            <template>list1=(True,False)</template>
+        </category>
+        <category>
+            <pattern>Obs</pattern>
+            <template>Pot fi si de tip mixt list1=(1,"1",1.1,True)</template>
+        </category>
+        <!--
+        
+        In caz ca se blocheaza utilizatorul
+        
+        -->
+        <category>
+            <pattern>Am uitat ce contineau listele</pattern>
+            <template>Ai dori sa stii definitia,cum sunt definite,pe ce bazeaza,metode,cum pot fi sau operatii cu Liste</template>
+        </category>
+        <!--
+        
+        Cum pot fi listele
+        
+        -->
+        <category>
+            <pattern>Cum pot fi listele</pattern>
+            <template>Listele pot fi ordonate si schimbabile</template>
+        </category>
+        <category>
+            <pattern>As dori * pot fi Listele</pattern>
+            <template>
+                <srai>Cum pot fi Listele</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * listele schimbabile</pattern>
+            <template>
+                <button>
+                    <text>Despre Sortarea prin bule></text>
+                    <postback>Despre Sortarea prin bule</postback>
+                </button>
+                <button>
+                    <text>Despre Sortarea prin inserare</text>
+                    <postback>Despre Sortarea prin inserare</postback>
+                </button>
+                <button>
+                    <text>Despre Sortarea prin combinare</text>
+                    <postback>Despre Sortarea prin combinare</postback>
+                </button>
+                <button>
+                    <text>Despre sortarea rapida</text>
+                    <postback>Despre sortarea rapida</postback>
+                </button>
+                <button>
+                    <text>Despre sortarea prin selectie</text>
+                    <postback>Despre sortarea prin selectie</postback>
+                </button>
+                <button>
+                    <text>Despre sortarea rafturilor</text>
+                    <postback>Despre sortarea rafturilor</postback>
+                </button>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre sortarea rafturilor</pattern>
+            <template>Sortarea rafturilor mai intai sorteaza elementele care sunt departe una de cealalta si reduc mereu intervalul dintre elemente ca sa fie sortate
+            <link>
+                <text>Un dans explicativ</text>
+                <url>https://www.youtube.com/watch?v=yn0EgXHb5jc</url>
+            </link>    
+            </template>
+        </category>
+                <category>
+            <pattern>Despre sortarea bule</pattern>
+            <template>Sortarea bulelor functioneaza prin examinarea fiecarui set prin adjustarea elementelor intr-un string, de la stanga la dreapta, pozitia schimbandu-se daca ele nu sunt in ordine
+            <link>
+                <text>Un dans explicativ</text>
+                <url>https://www.youtube.com/watch?v=semGJAJ7i74</url>
+            </link>    
+            </template>
+        </category>
+                <category>
+            <pattern>Despre sortarea inserare</pattern>
+            <template>Sortarea prin inserare  repeta, consumand un element introdus la fiecare repetare, si creste in sortare afisarea listei
+            <link>
+                <text>Un dans explicativ</text>
+                <url>youtube.com/watch?v=EdIKIf9mHk0</url>
+            </link>    
+            </template>
+        </category>
+                <category>
+            <pattern>Despre sortarea combinare</pattern>
+            <template>Sortarea prin combinare foloseste recursiv un algoritm pentru obtinerea unui rezultat
+            <link>
+                <text>Un dans explicativ</text>
+                <url>https://www.youtube.com/watch?v=dENca26N6V4</url>
+            </link>    
+            </template>
+        </category>
+                <category>
+            <pattern>Despre sortarea rapida</pattern>
+            <template>Sortarea rapida functioneaza prin spargerea listei intr-una mai mica si schimband pe cele mai mici, depinzand pe o comparare cu 'pivot' element ales
+            <link>
+                <text>Un dans explicativ</text>
+                <url>https://www.youtube.com/watch?v=kDgvnbUIqT4</url>
+            </link>    
+            </template>
+        </category>
+                <category>
+            <pattern>Despre sortarea selectie</pattern>
+            <template>Sortarea prin selectie ia cel mai mic element dintr-o lista nesortata si il aduce in fata
+            <link>
+                <text>Un dans explicativ</text>
+                <url>https://www.youtube.com/watch?v=0-W8OEwLebQ</url>
+            </link>    
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * listele ordonate</pattern>
+            <template>
+                <button>
+                    <text>Lista sir de caractere</text>
+                    <postback>Lista sir de caractere</postback>
+                </button>
+                <button>
+                    <text>Lista de numere</text>
+                    <postback>Lista de numere</postback>
+                </button>
+            </template>
+        </category>
+        <category>
+            <pattern>As * listele ordonate</pattern>
+            <template>
+                <srai>Cum * listele ordonate</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Lista sir de caractere</pattern>
+            <template>Roman to Integer unde se transforma un String intr-un numar normal(IV va deveni 4,ca sa se rezolve mai usor se face un map si se pun numerele in ordine crescatoare si daca numarul e mai mare fata de cel precedent de la stanga la dreapta atunci trebuie sa se tina contul ca sa scada de exemplu IV se va lua in considera se sa scada 1 pentru fiecare I dinaintea lui V)</template>
+        </category>
+        <category>
+            <pattern>Lista de numere</pattern>
+            <template>Two sum ,acest algoritm vine cu o lista(list1=[1,2,3,4]) si un target ,astfel doua numere diferite trebuie sa fie egale cu target-ul(din list1 daca target-ul este 3 atunci va fi egal cu [1,2] altfel va fi 0)</template>
+        </category>
+        <!--
+        
+        Sfarsitul topicului
+        
+        -->
+    </topic>
+    <!--
+    
+    Topicul
+    
+    -->
+    <topic name="Dictionare">
+        <!--
+            Primele intrebari
+        -->
+        <category>
+            <pattern>Cum * definite Dictionarele</pattern>
+            <template>Dictionarele sunt definite cu ()</template>
+        </category>
+        <category>
+            <pattern>As dori * definesc Dictionarele</pattern>
+            <template>
+                <srai>Cum * definite Dictionarele</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definite Dictionarele</pattern>
+            <template>
+                <srai>Cum * definite Dictionarele</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * definitia Dictionarele</pattern>
+            <template>sunt mutabile,schimbabile,dar nu lasa duplicari</template>
+        </category>
+        <category>
+            <pattern>As dori * definitia Dictionarelor</pattern>
+            <template>
+                <srai>Care * definitia Dictionarelor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * definitia * Dictionare</pattern>
+            <template>
+                 <srai>Care * definitia Dictionarelor</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As dori * definitia * Dictionare</pattern>
+            <template>
+                <srai>Care * definitia Dictionarelor</srai>
+            </template>
+        </category>
+        <!--
+        
+        metodele Dictionarelor butoane
+        
+        -->
+        <category>
+            <pattern>Care * metodele * Dictionare</pattern>
+            <template>
+            <button>
+                <text>Despre clear</text>
+                <postback>Despre clear</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza clear</text>
+                <postback>Cum functioneaza clear</postback>
+            </button>
+            <button>
+                <text>Despre copy</text>
+                <postback>Despre copy</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza copy</text>
+                <postback>Cum functioneaza copy</postback>
+            </button>
+            <button>
+                <text>Despre fromkeys</text>
+                <postback>Despre fromkeys</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza fromkeys</text>
+                <postback>Cum functioneaza fromkeys</postback>
+            </button>
+            <button>
+                <text>Despre get</text>
+                <postback>Despre get</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza get</text>
+                <postback>Cum functioneaza get</postback>
+            </button>
+            <button>
+                <text>Despre items</text>
+                <postback>Despre items</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza items</text>
+                <postback>Cum functioneaza items</postback>
+            </button>
+            <button>
+                <text>Despre keys</text>
+                <postback>Despre keys</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza keys</text>
+                <postback>Cum functioneaza keys</postback>
+            </button>
+            <button>
+                <text>Despre pop</text>
+                <postback>Despre pop</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza pop</text>
+                <postback>Cum functioneaza pop</postback>
+            </button>
+            <button>
+                <text>Despre popitem</text>
+                <postback>Despre popitem</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza popitem</text>
+                <postback>Cum functioneaza popitem</postback>
+            </button>
+            <button>
+                <text>Despre setDefault</text>
+                <postback>Despre setDefault</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza setDefault</text>
+                <postback>Cum functioneaza setDefault</postback>
+            </button>
+            <button>
+                <text>Despre update</text>
+                <postback>Despre update</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza update</text>
+                <postback>Cum functioneaza update</postback>
+            </button>
+            <button>
+                <text>Despre values</text>
+                <postback>Despre values</postback>
+            </button>
+            <button>
+                <text>Cum functioneaza values</text>
+                <postback>Cum functioneaza values</postback>
+            </button>
+             </template>
+        </category>
+        <category>
+            <pattern>Care * metodele Dictionarelor</pattern>
+            <template>
+                <srai>Care * metodele * Dictionare</srai>
+            </template>
+        </category>
+        <pattern>
+            <pattern>As dori * metodele Dictionarelor</pattern>
+            <template>
+                <srai>Care * metodele * Dictionare</srai>
+            </template>
+        </pattern>
+        <category>
+            <pattern>As dori * metodele * Dictionare</pattern>
+            <template>
+                <srai>Care * metodele * Dictionare</srai>
+            </template>
+        </category>
+        <!--
+        
+        Metodele Tuplurilor
+        
+        -->
+        <category>
+            <pattern>Despre clear</pattern>
+            <template>Metoda clear sterge toate elementele din dictionar</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza clear</pattern>
+            <template>dictionar1.clear()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_clear.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre copy</pattern>
+            <template>Metoda copy returneaza o copie la un dictionar</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza copy</pattern>
+            <template>dictionar1.copy(dictionar2)
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_copy.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre fromkeys</pattern>
+            <template>Metoda fromkeys returneaza un dictionar cu o cheie specifica</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza fromkeys</pattern>
+            <template>dictionar1=dict.fromkeys(x,y) x fiind un set de date string ,iar y un set date int 
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_fromkeys.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre get</pattern>
+            <template>Metoda get returneaza o valoare cu cheie specifica</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza get</pattern>
+            <template>car={"model":"Brand"} print(print car.get("model")) care va afisa "Brand"
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_get.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre items</pattern>
+            <template>Metoda items returneaza o lista care contine un tuplu pentru fiecare cheie fiind imperecheata</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza items</pattern>
+            <template>dictionar1.items()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_items.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre keys</pattern>
+            <template>Metoda keys returneaza cheile dictionarului</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza keys</pattern>
+            <template>dictionar1.keys()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_keys.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre pop</pattern>
+            <template>Metoda pop sterge elemetele cu o cheie specifica</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza pop</pattern>
+            <template>dictionar1.pop("model")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_pop.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre popitem</pattern>
+            <template>Metoda popitem sterge ultimul pereche din dictionar</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza popitem</pattern>
+            <template>dictionar1.popitem()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_popitem.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre setDefault</pattern>
+            <template>Metoda setDefault returneaza o valoare la o cheie specifica,daca cheie cheia nu exista insereaza cheia cu o valoare specifica</template>
+        </category>
+        
+        <category>
+            <pattern>Cum functioneaza setDefault</pattern>
+            <template>car.setDefault("model":"Mustang") la butonul 8 sa pun model cu cheia "Brand" cum deja exista cand dam print(car.get("model")) se va afisa "Brand",daca nu era model initializat atunci insera "Mustang" sau nu era atunci le insera pe amandoua
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_setdefault.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre update</pattern>
+            <template>Metoda update actualizeaza dictionarul cu o pereche de chei</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza update</pattern>
+            <template>car.update("color":"White")
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_update.asp</url>
+            </link>
+            </template>
+        </category>
+        <category>
+            <pattern>Despre values</pattern>
+            <template>Metoda values returneaza o lista cu toate valorile din dictionar</template>
+        </category>
+        <category>
+            <pattern>Cum functioneaza values</pattern>
+            <template>x=dictionar1.values()
+            <link>
+                <text>Mai multe detalii</text>
+                <url>https://www.w3schools.com/python/ref_dictionary_values.asp</url>
+            </link>
+            </template>
+        </category>
+        <!--
+        
+        Dictionare iteme butoane
+        
+        -->
+        <category>
+            <pattern>Cum * itemele * Dictionare</pattern>
+            <template>
+                <button>
+                    <text>De tip int</text>
+                    <postback>De tip int</postback>
+                </button>
+                <button>
+                    <text>De tip String</text>
+                    <postback>De tip String</postback>
+                </button>
+                <button>
+                    <text>De tip float</text>
+                    <postback>De tip float</postback>
+                </button>
+                <button>
+                    <text>De tip boolean</text>
+                    <postback>De tip boolean</postback>
+                </button>
+                <button>
+                    <text>Obs</text>
+                    <postback>Obs</postback>
+                </button>
+            </template>
+        </category>
+         <category>
+            <pattern>Care sunt itemele * Dictionare</pattern>
+            <template>
+                <srai>Cum sunt itemele * Dictionare</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As * itemele * Dictionare</pattern>
+            <template>
+                <srai>Cum sunt itemele * Dictionare</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Care * itemele Dictionarelor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Dictionare</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>Cum * itemele Dictionarelor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Dictionare</srai>
+            </template>
+        </category>
+        <category>
+            <pattern>As * itemele Dictionarelor</pattern>
+            <template>
+                <srai>Cum sunt itemele * Dictionare</srai>
+            </template>
+        </category>
+        <!--
+        
+        Tupluri butoane
+        
+        -->
+        <category>
+            <pattern>De tip int</pattern>
+            <template>dictionar1={1:2,3:4}</template>
+        </category>
+        <category>
+            <pattern>De tip String</pattern>
+            <template>dictionar1=("ceva1":"ceva2","ceva3":"ceva4")</template>
+        </category>
+        <category>
+            <pattern>De tip float</pattern>
+            <template>dictionar1=(3.14:3.113,3.12:3)</template>
+        </category>
+        <category>
+            <pattern>De tip boolean</pattern>
+            <template>dictionar1=(True:False)</template>
+        </category>
+        <category>
+            <pattern>Obs</pattern>
+            <template>dictionar1=(1:"1",1.1:True)</template>
+        </category>
+        <!--
+        
+        In caz ca se blocheaza utilizatorul
+        
+        -->
+        <category>
+            <pattern>Am uitat ce contineau dictionarele</pattern>
+            <template>Ai dori sa stii definitia,cum sunt definite,pe ce se bazeaza,metode sau operatii cu Dictionare</template>
+        </category>
+        <!--
+        
+        Sfarsitul topicului
+        
+        -->
+    </topic>
+<category>
+    <pattern></pattern>
+    <template></template>
+</category>
+</aiml>
