@@ -11,7 +11,7 @@ https://github.com/Stefanut99009/MyProjects/assets/60289778/67dc6151-53a3-47bf-8
 <br>
 <br>
 
-In "other" file you will found other projects from basic to intermediate.
+In "others" file you will found other projects from basic to intermediate.
 
 like this one
 
